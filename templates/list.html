@@ -3,8 +3,14 @@
 
 <head>
     <style>
-        table,
-        th,
+        table {
+            width: 1200px;
+        }
+        
+        th {
+            border: 1px solid black;
+        }
+        
         td {
             border: 1px solid black;
         }
@@ -12,30 +18,31 @@
 </head>
 
 <body>
+    <h3>User Story manager</h3>
     <form action="/story">
-        <input type="submit" value="Add new User Story" />
+        <input type="submit" value="Add new User Story" id="new_story_button" />
     </form>
-    <table>
+    <table cellpadding="2" style="font-size:14px">
         <tr>
-            <th>ID</th>
-            <th>Story Title</th>
-            <th>User Story</th>
-            <th>Acceptance Criteria</th>
-            <th>Business Value</th>
-            <th>Estimation</th>
-            <th>Status</th>
+            <th align="left">ID</th>
+            <th align="left">Story Title</th>
+            <th align="left">User Story</th>
+            <th align="left">Acceptance Criteria</th>
+            <th align="left">Business Value</th>
+            <th align="left">Estimation</th>
+            <th align="left">Status</th>
         </tr>
-        {% for row in data_content %}
+        {% for row in csv_content %}
         <tr>
             <td>{{ row[0] }}</td>
-            <td>{{ row[1] }}</td>
-            <td>{{ row[2] }}</td>
-            <td>{{ row[3] }}</td>
-            <td>{{ row[4] }}</td>
-            <td>{{ row[5] }}</td>
-            <td>{{ row[6] }}</td>
-            <td><a href="./story/{{ row[0]  }}">pen icon</td>
-            <td><a href="./story/{{ row[0]  }}/delete">bin icon</td>
+            <td width=100px word-wrap:break-word;>{{ row[1] }}</td>
+            <td width=300px word-wrap:break-word;>{{ row[2] }}</td>
+            <td width=300px word-wrap:break-word;>{{ row[3] }}</td>
+            <td width=150px>{{ row[4] }}</td>
+            <td width=100px>{{ row[5] }}</td>
+            <td width=75px>{{ row[6] }}</td>
+            <td width=20px><a href="./story/{{ row[0] }}" style="font-size:20px" id="edit_icon">✎</td>
+            <td width=15px><a href="./story/{{ row[0] }}/delete" style="font-size:20px" id="delete_icon">✗</td>
         </tr>
         {% endfor %}
     </table>

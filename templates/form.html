@@ -1,32 +1,32 @@
 <html>
 
 <head>
-    <title>User Story manager {{title}}</title>
+    <title>{{title}}</title>
 </head>
 
 <body>
 
-    <h3>User Story manager {{title}}</h3>
+    <h3>User Story manager - {{title}}</h3>
 
     <form action={{storyid}}/{{formsubmit}} method="POST">
 
-        <p>Story Title</p>
-        <p><input name="story title" value={{storytitle}}></p>
+        <label for="story title">Story Title</label>
+        <p><input name="story title" id="storytitle" value={{storytitle}}></p>
 
-        <p>User Story</p>
-        <p><textarea rows="4" cols="50" name="user story">{{userstory}}</textarea></p>
+        <label for="user story">User Story</label>
+        <p><textarea rows="4" cols="50" name="user story" id="userstory">{{userstory}}</textarea></p>
 
-        <p>Acceptance criteria</p>
-        <p><textarea rows="4" cols="50" name="acceptance">{{acceptance}}</textarea></p>
+        <label for="acceptance">Acceptance Criteria</label>
+        <p><textarea rows="4" cols="50" name="acceptance" id="acceptance">{{acceptance}}</textarea></p>
 
-        <p>Business Value</p>
-        <p><input type=number name="business value" min="100" max="1500" step="100" value={{business_value}}></p>
+        <label for="business value">Business Value</label>
+        <p><input type=number name="business value" min="100" max="1500" step="100" value={{business_value}} id="businessvalue"></p>
 
-        <p>Estimation(h)</p>
-        <p><input type=number name="estimation" min="0.5" max="40" step="0.5" value={{estimation}}></p>
+        <label for="estimation">Estimation(h)</label>
+        <p><input type=number name="estimation" min="0.5" max="40" step="0.5" value={{estimation}} id="estimation"></p>
 
-        <p>Status</p>
-        <select name="status">
+        <label for="status">Status</label>
+        <select name="status" id="status">
         <option>Planning</option>
         <option>TODO</option>
         <option>In Progress</option>
@@ -34,7 +34,7 @@
         <option>Done</option>
         </select>
 
-        <p><input type="submit" name="submit" value="Submit"></p>
+        <p><input type="submit" name="submit" value={{form_submit_button}} id="form_submit_button"></p>
 
     </form>
 
